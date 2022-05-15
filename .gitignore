@@ -1,0 +1,15 @@
+node_modules/
+dist/
+release/
+*db/
+screenshots/
+.idea/
+coverage/
+yarn.error
+junit.xml
+*.DS_Store
+.token
+dev-app-update.yml
+webpack-visualization/
+yarn-error.log
+__scripts/

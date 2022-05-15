@@ -1,0 +1,31 @@
+/* istanbul ignore file */
+import Worker from 'worker-loader!./tokenizer.worker';
+import { PomodoroRecord } from '../monitor/type';
+import { BaseWorker } from './BaseWorker';
+import { Card } from '../components/Kanban/type';
+
+export class Tokenizer extends BaseWorker {
+    protected worker = new Worker();
+
+    public async tokenize(records: PomodoroRecord[], cards: Card[]): Promise<[string, number][]> {
+        if (process.env.NODE_ENV === 'test') {
+            return [];
+        }
+
+        return (await this.createHandler(
+            {
+                type: 'tokenize',
+                payload: {
+                    records,
+                    cards,
+                },
+            },
+            {
+                tokenize: (payload, done) => {
+                    done(payload);
+                },
+            },
+            5000
+        )) as [string, number][];
+    }
+}
