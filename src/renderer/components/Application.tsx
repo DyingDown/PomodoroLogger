@@ -146,7 +146,7 @@ class Application extends React.Component<Props> {
                         </DestroyOnTimeoutWrapper>
                     </TabPane>
 
-                    {/* <TabPane
+                    <TabPane
                         tab={
                             <span>
                                 <Icon type="history" />
@@ -162,7 +162,7 @@ class Application extends React.Component<Props> {
                         >
                             <History />
                         </DestroyOnTimeoutWrapper>
-                    </TabPane> */}
+                    </TabPane>
 
                     <TabPane
                         tab={

@@ -103,29 +103,29 @@ export const Setting: React.FunctionComponent<Props> = React.memo(
             props.setLongBreakDuration(v * 60);
         }, []);
 
-        // const switchScreenshot = React.useCallback((v: boolean) => {
-        //     if (v) {
-        //         props.setScreenShotInterval(1000 * 60 * 5);
-        //     } else {
-        //         props.setScreenShotInterval(undefined);
-        //     }
+        const switchScreenshot = React.useCallback((v: boolean) => {
+            if (v) {
+                props.setScreenShotInterval(1000 * 60 * 5);
+            } else {
+                props.setScreenShotInterval(undefined);
+            }
 
-        //     notification.open({
-        //         message: '重启应用来应用新的设置',
-        //         description: 'Screenshot setting change needs restart to be applied',
-        //         duration: 0,
-        //         icon: <Icon type="warning" />,
-        //     });
-        // }, []);
+            notification.open({
+                message: '重启应用来应用新的设置',
+                description: 'Screenshot setting change needs restart to be applied',
+                duration: 0,
+                icon: <Icon type="warning" />,
+            });
+        }, []);
 
-        // const switchAutoUpdate = React.useCallback((v: boolean) => {
-        //     props.setAutoUpdate(v);
-        // }, []);
+        const switchAutoUpdate = React.useCallback((v: boolean) => {
+            props.setAutoUpdate(v);
+        }, []);
 
-        // const setStartOnBoot = React.useCallback((v: boolean) => {
-        //     props.setStartOnBoot(v);
-        //     window.api.openAtLogin(v);
-        // }, []);
+        const setStartOnBoot = React.useCallback((v: boolean) => {
+            props.setStartOnBoot(v);
+            window.api.openAtLogin(v);
+        }, []);
 
         // const setUseHardwareAcceleration = useCallback((v: boolean) => {
         //     props.setUseHardwareAcceleration(v);
@@ -210,7 +210,7 @@ export const Setting: React.FunctionComponent<Props> = React.memo(
                 />
                 <br /> */}
 
-                {/* <span style={{ fontWeight: 500, fontSize: 14, color: 'rgba(0, 0, 0, 0.85)' }}>
+                <span style={{ fontWeight: 500, fontSize: 14, color: 'rgba(0, 0, 0, 0.85)' }}>
                     开机自启
                 </span>
                 <Switch
@@ -218,7 +218,7 @@ export const Setting: React.FunctionComponent<Props> = React.memo(
                     checked={props.startOnBoot}
                     style={{ margin: 8 }}
                 />
-                <br /> */}
+                <br />
                 {/* <span style={{ fontWeight: 500, fontSize: 14, color: 'rgba(0, 0, 0, 0.85' }}>
                     Auto Update
                 </span>
@@ -229,14 +229,14 @@ export const Setting: React.FunctionComponent<Props> = React.memo(
                 />
                 <br /> */}
 
-                {/* <span style={{ fontWeight: 500, fontSize: 14, color: 'rgba(0, 0, 0, 0.85' }}>
+                <span style={{ fontWeight: 500, fontSize: 14, color: 'rgba(0, 0, 0, 0.85' }}>
                     Screenshot
                 </span>
                 <Switch
                     onChange={switchScreenshot}
                     checked={!!props.screenShotInterval}
                     style={{ margin: 8 }}
-                /> */}
+                />
 
                 <h4>数据管理</h4>
                 <ButtonWrapper>

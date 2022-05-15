@@ -71,7 +71,7 @@ export const Board: FC<Props> = React.memo(
         };
 
         const addList = async () => {
-            await props.addList(props._id, 'TestList');
+            await props.addList(props._id, '测试列表');
         };
 
         const { doesOnlyShowFocusedList = false } = props;
